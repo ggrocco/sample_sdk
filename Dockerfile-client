@@ -1,0 +1,22 @@
+# syntax=docker/dockerfile:1
+
+FROM node:14-buster
+
+WORKDIR /
+RUN apt-get update && \
+    apt-get -y upgrade
+
+COPY ./sdk_ts ./sdk_ts
+COPY ./sdk_consumer ./sdk_consumer
+
+RUN npm install -g npm@latest
+
+RUN cd /sdk_ts && \
+    npm install --frozen-lockfile && \
+    npm run build
+
+RUN cd /sdk_consumer && \
+    npm install --frozen-lockfile && \
+    npm run build
+
+ENTRYPOINT ["node", "./sdk_consumer/dist/index.js"]
