@@ -1,0 +1,15 @@
+{
+  "name": "sdk_consumer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "sdk_ts": "file:../sdk_ts"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}
