@@ -1,0 +1,37 @@
+basePath: /api/v1
+definitions:
+  handler.Job:
+    properties:
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+host: server:3000
+info:
+  contact:
+    email: georgeo.rocco@x-team.com
+    name: API Support
+  description: Sample API to use swagger to generate a SDK.
+  termsOfService: http://swagger.io/terms/
+  title: Simple API
+  version: "1.0"
+paths:
+  /jobs:
+    get:
+      consumes:
+      - application/json
+      description: Get all job
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.Job'
+      summary: Get all job
+schemes:
+- http
+swagger: "2.0"
